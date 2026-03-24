@@ -1,7 +1,13 @@
 import type { AppProps } from "next/app";
 import "@/styles/globals.css";
 import Head from "next/head";
-<link rel="icon" type="image/png" href="/fss.png" />
+import Head from 'next/head';
+
+<Head>
+  <link rel="icon" href="/fss.png" />
+  <link rel="shortcut icon" href="/fss.png" />
+  <link rel="apple-touch-icon" href="/fss.png" />
+</Head>
 
 export default function App({ Component, pageProps }: AppProps) {
   return (

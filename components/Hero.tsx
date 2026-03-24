@@ -173,7 +173,7 @@ export default function Hero() {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-float">
+         <div className="flex flex-col items-center gap-2 animate-float mt-16">
           <span className="text-[#4a4a6a] text-xs font-mono">scroll</span>
           <div className="w-px h-10 bg-gradient-to-b from-[#4a4a6a] to-transparent" />
         </div>

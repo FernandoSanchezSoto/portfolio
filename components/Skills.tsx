@@ -58,7 +58,7 @@ export default function Skills() {
         <div className="section-enter mb-14">
           <h2 className="font-mono font-bold text-4xl md:text-5xl text-white/90 leading-tight">
             Tecnologías que{" "}
-            <span className="text-purple-400">uso</span>
+            <span className="text-gradient">uso</span>
           </h2>
           <p className="mt-4 text-white/40 font-mono text-sm max-w-xl">
           </p>

@@ -105,7 +105,7 @@ export default function Projects() {
                   </div>
 
                   {/* Visual decoration */}
-                  <div className="mt-8 p-4 rounded-xl bg-[#0a0a0f] border border-[#1e1e2e]">
+                  <div className="mt-8 p-4 rounded-xl bg-[#0a0a0f] border border-[#1e1e2e] max-w-[70%]">
                     <div className="flex items-center gap-2 mb-3">
                       <div className="w-2.5 h-2.5 rounded-full bg-[#f472b6]/60" />
                       <div className="w-2.5 h-2.5 rounded-full bg-[#fbbf24]/60" />
@@ -129,7 +129,7 @@ export default function Projects() {
         {/* GitHub CTA */}
         <div className="section-enter mt-12 text-center">
           <a
-            href="https://github.com/FernandoSanchezSoto"
+            href="https://github.com/FernandoSanchezSoto/prw"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 px-6 py-3 rounded-full border border-[#1e1e2e] text-[#94a3b8] font-mono text-sm hover:border-[#6ee7b7]/40 hover:text-[#6ee7b7] transition-all duration-300 group"

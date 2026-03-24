@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 const skills = [
   // Frontend
   { name: "HTML5", icon: "https://cdn.simpleicons.org/html5/E34F26" },
-  { name: "CSS3", icon: "https://cdn.simpleicons.org/css3/1572B6" },
+  { name: "CSS3", icon: "https://cdn.simpleicons.org/css/1572B6" },
   { name: "JavaScript", icon: "https://cdn.simpleicons.org/javascript/F7DF1E" },
   { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript/3178C6" },
   { name: "React", icon: "https://cdn.simpleicons.org/react/61DAFB" },
@@ -21,7 +21,6 @@ const skills = [
   { name: "Dart", icon: "https://cdn.simpleicons.org/dart/0175C2" },
   // Tools
   { name: "Git", icon: "https://cdn.simpleicons.org/git/F05032" },
-  { name: "Figma", icon: "https://cdn.simpleicons.org/figma/F24E1E" },
 ];
 
 export default function Skills() {
@@ -50,7 +49,7 @@ export default function Skills() {
 
         {/* Section label */}
         <div className="section-enter flex items-center gap-4 mb-16">
-          <span className="font-mono text-purple-400 text-xs tracking-[0.3em] uppercase">
+          <span className="font-mono text-[#6ee7b7] text-xs tracking-[0.3em] uppercase">
             03 — Stack
           </span>
           <span className="h-px flex-1 bg-white/5" />
@@ -62,7 +61,6 @@ export default function Skills() {
             <span className="text-purple-400">uso</span>
           </h2>
           <p className="mt-4 text-white/40 font-mono text-sm max-w-xl">
-            Herramientas y lenguajes con los que trabajo en el día a día.
           </p>
         </div>
 

@@ -99,14 +99,7 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-        {/* Available badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#1e1e2e] bg-[#111118]/80 backdrop-blur-sm mb-8 animate-fade-up">
-          <span className="w-2 h-2 rounded-full bg-[#6ee7b7] glow-dot animate-pulse" />
-          <span className="text-[#6ee7b7] text-xs font-mono tracking-widest uppercase">
-            Disponible para trabajar
-          </span>
-        </div>
-
+        
         {/* Name */}
         <h1
           className="font-display font-bold text-5xl md:text-7xl lg:text-8xl leading-none mb-4 animate-fade-up"

@@ -1,7 +1,6 @@
 import type { AppProps } from "next/app";
 import "@/styles/globals.css";
 import Head from "next/head";
-import Head from 'next/head';
 
 <Head>
   <link rel="icon" href="/fss.png" />

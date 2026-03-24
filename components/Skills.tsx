@@ -1,18 +1,31 @@
-import { useEffect, useRef, useState } from "react";
-import { skills, skillCategories } from "@/data/portfolio";
+import { useEffect, useRef } from "react";
 
-const categoryColors: Record<string, string> = {
-  Frontend: "#6ee7b7",
-  Backend: "#818cf8",
-  Database: "#f472b6",
-  Mobile: "#fbbf24",
-  Tools: "#94a3b8",
-};
+const skills = [
+  // Frontend
+  { name: "HTML5", icon: "https://cdn.simpleicons.org/html5/E34F26" },
+  { name: "CSS3", icon: "https://cdn.simpleicons.org/css3/1572B6" },
+  { name: "JavaScript", icon: "https://cdn.simpleicons.org/javascript/F7DF1E" },
+  { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript/3178C6" },
+  { name: "React", icon: "https://cdn.simpleicons.org/react/61DAFB" },
+  { name: "Next.js", icon: "https://cdn.simpleicons.org/nextdotjs/ffffff" },
+  { name: "Tailwind CSS", icon: "https://cdn.simpleicons.org/tailwindcss/06B6D4" },
+  // Backend
+  { name: "Node.js", icon: "https://cdn.simpleicons.org/nodedotjs/5FA04E" },
+  { name: "NestJS", icon: "https://cdn.simpleicons.org/nestjs/E0234E" },
+  { name: "PHP", icon: "https://cdn.simpleicons.org/php/777BB4" },
+  { name: "Laravel", icon: "https://cdn.simpleicons.org/laravel/FF2D20" },
+  // Database
+  { name: "MySQL", icon: "https://cdn.simpleicons.org/mysql/4479A1" },
+  // Mobile
+  { name: "Flutter", icon: "https://cdn.simpleicons.org/flutter/02569B" },
+  { name: "Dart", icon: "https://cdn.simpleicons.org/dart/0175C2" },
+  // Tools
+  { name: "Git", icon: "https://cdn.simpleicons.org/git/F05032" },
+  { name: "Figma", icon: "https://cdn.simpleicons.org/figma/F24E1E" },
+];
 
 export default function Skills() {
   const sectionRef = useRef<HTMLElement>(null);
-  const [activeCategory, setActiveCategory] = useState<string>("Frontend");
-  const [animated, setAnimated] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -20,9 +33,8 @@ export default function Skills() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.querySelectorAll(".section-enter").forEach((el, i) => {
-              setTimeout(() => el.classList.add("visible"), i * 80);
+              setTimeout(() => el.classList.add("visible"), i * 60);
             });
-            setAnimated(true);
           }
         });
       },
@@ -32,98 +44,48 @@ export default function Skills() {
     return () => observer.disconnect();
   }, []);
 
-  const filteredSkills = skills.filter((s) => s.category === activeCategory);
-
   return (
-    <section id="skills" ref={sectionRef} className="py-32 px-6 relative bg-[#111118]/50">
-      <div className="max-w-6xl mx-auto">
+    <section id="skills" ref={sectionRef} className="py-32 px-6 relative">
+      <div className="max-w-5xl mx-auto">
+
         {/* Section label */}
         <div className="section-enter flex items-center gap-4 mb-16">
-          <span className="font-mono text-[#6ee7b7] text-xs tracking-[0.3em] uppercase">04 — Habilidades</span>
-          <span className="h-px flex-1 bg-[#1e1e2e]" />
+          <span className="font-mono text-purple-400 text-xs tracking-[0.3em] uppercase">
+            03 — Stack
+          </span>
+          <span className="h-px flex-1 bg-white/5" />
         </div>
 
-        <div className="section-enter mb-12">
-          <h2 className="font-display font-bold text-4xl md:text-5xl text-[#e2e8f0] leading-tight">
-            Mi stack
-            <span className="text-gradient"> tecnológico</span>
+        <div className="section-enter mb-14">
+          <h2 className="font-mono font-bold text-4xl md:text-5xl text-white/90 leading-tight">
+            Tecnologías que{" "}
+            <span className="text-purple-400">uso</span>
           </h2>
+          <p className="mt-4 text-white/40 font-mono text-sm max-w-xl">
+            Herramientas y lenguajes con los que trabajo en el día a día.
+          </p>
         </div>
 
-        {/* Category tabs */}
-        <div className="section-enter flex flex-wrap gap-2 mb-10">
-          {skillCategories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`px-4 py-2 rounded-full text-sm font-mono transition-all duration-200 ${
-                activeCategory === cat
-                  ? "text-[#0a0a0f] font-medium"
-                  : "text-[#4a4a6a] border border-[#1e1e2e] hover:border-[#6ee7b7]/30 hover:text-[#94a3b8]"
-              }`}
-              style={
-                activeCategory === cat
-                  ? { backgroundColor: categoryColors[cat] }
-                  : {}
-              }
+        {/* Grid de skills */}
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4">
+          {skills.map((skill, i) => (
+            <div
+              key={skill.name}
+              className="section-enter group flex flex-col items-center gap-3 p-5 rounded-xl border border-white/5 bg-white/[0.03] hover:border-purple-500/30 hover:bg-white/[0.06] transition-all duration-300 cursor-default"
             >
-              {cat}
-            </button>
-          ))}
-        </div>
-
-        {/* Skills bars */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-16">
-          {filteredSkills.map((skill, i) => (
-            <div key={skill.name} className="section-enter p-5 rounded-xl border border-[#1e1e2e] bg-[#16161f]">
-              <div className="flex items-center justify-between mb-3">
-                <span className="font-mono font-medium text-[#e2e8f0] text-sm">{skill.name}</span>
-                <span
-                  className="font-mono text-xs"
-                  style={{ color: categoryColors[skill.category] }}
-                >
-                  {skill.level}%
-                </span>
-              </div>
-              <div className="h-1.5 bg-[#1e1e2e] rounded-full overflow-hidden">
-                <div
-                  className="h-full rounded-full transition-all duration-1000 ease-out"
-                  style={{
-                    width: animated ? `${skill.level}%` : "0%",
-                    backgroundColor: categoryColors[skill.category],
-                    transitionDelay: `${i * 0.08}s`,
-                    boxShadow: `0 0 8px ${categoryColors[skill.category]}40`,
-                  }}
-                />
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* All tech cloud */}
-        <div className="section-enter">
-          <p className="font-mono text-[#4a4a6a] text-xs uppercase tracking-widest mb-6 text-center">Todas las tecnologías</p>
-          <div className="flex flex-wrap justify-center gap-3">
-            {skills.map((skill) => (
-              <span
-                key={skill.name}
-                className="group px-4 py-2 rounded-full border border-[#1e1e2e] bg-[#16161f] text-[#94a3b8] text-sm font-mono hover:border-opacity-50 transition-all duration-200 cursor-default"
-                style={{
-                  ["--hover-color" as string]: categoryColors[skill.category],
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.borderColor = categoryColors[skill.category] + "50";
-                  (e.currentTarget as HTMLElement).style.color = categoryColors[skill.category];
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.borderColor = "";
-                  (e.currentTarget as HTMLElement).style.color = "";
-                }}
-              >
+              <img
+                src={skill.icon}
+                alt={skill.name}
+                width={36}
+                height={36}
+                className="w-9 h-9 object-contain group-hover:scale-110 transition-transform duration-300"
+                loading="lazy"
+              />
+              <span className="font-mono text-xs text-white/50 group-hover:text-white/80 transition-colors duration-300 text-center leading-tight">
                 {skill.name}
               </span>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

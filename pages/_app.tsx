@@ -1,6 +1,7 @@
 import type { AppProps } from "next/app";
 import "@/styles/globals.css";
 import Head from "next/head";
+<link rel="icon" type="image/png" href="/fss.png" />
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
